@@ -1,4 +1,4 @@
-name: Build and Package Electron App
+name: Package Electron App as Portable
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-package:
+  package-app:
     runs-on: windows-latest
 
     steps:
@@ -19,17 +19,21 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16' # Match the node version to your development environment
+        node-version: '16' # Ensure compatibility with your Electron version
 
     - name: Install Dependencies
       run: npm install
 
-    - name: Build and Package App
-      run: npm run make
+    - name: Package App
+      run: npm run package
+
+    - name: Zip Package
+      run: |
+        Compress-Archive -Path out/package/* -DestinationPath packaged-app.zip
 
     - name: Upload Artifacts
       uses: actions/upload-artifact@v3
       with:
-        name: windows-app
-        path: out/make/squirrel.windows/x64/* # Adjust this path based on your output directory
+        name: portable-windows-app
+        path: packaged-app.zip
 
