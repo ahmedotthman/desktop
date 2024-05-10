@@ -1,0 +1,46 @@
+name: Build Electron App on Windows
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14' # Specify your Node.js version
+
+    - name: Cache node_modules
+      uses: actions/cache@v2
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Build Electron App
+      run: npm run build # or your custom build script
+
+    - name: Package App
+      run: npm run dist # or your custom packaging script
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-app
+        path: dist/*.exe # Adjust the path according to your output files
+
