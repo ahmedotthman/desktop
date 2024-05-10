@@ -1,4 +1,4 @@
-name: Build Electron App on Windows
+name: Build and Package Electron App
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  build-and-package:
     runs-on: windows-latest
 
     steps:
@@ -17,30 +17,19 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Set up Node.js
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v3
       with:
-        node-version: '14' # Specify your Node.js version
-
-    - name: Cache node_modules
-      uses: actions/cache@v2
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
+        node-version: '16' # Match the node version to your development environment
 
     - name: Install Dependencies
       run: npm install
 
-    - name: Build Electron App
-      run: npm run build # or your custom build script
-
-    - name: Package App
-      run: npm run dist # or your custom packaging script
+    - name: Build and Package App
+      run: npm run make
 
     - name: Upload Artifacts
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: windows-app
-        path: dist/*.exe # Adjust the path according to your output files
+        path: out/make/squirrel.windows/x64/* # Adjust this path based on your output directory
 
