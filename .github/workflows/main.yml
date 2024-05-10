@@ -1,4 +1,4 @@
-name: Package Electron App
+name: Build and Package Electron App
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  package-app:
+  build:
     runs-on: windows-latest
 
     steps:
@@ -19,17 +19,17 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16' # Adjust this as necessary to match your project's Node.js version
+        node-version: '16'  # Match the Node.js version you are using
 
-    - name: Install Dependencies
+    - name: Install dependencies
       run: npm install
 
-    - name: Package App
+    - name: Run package script
       run: npm run package
 
-    - name: Upload Artifacts
+    - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: windows-app
-        path: out/package/**  # Adjust this path to match where electron-forge outputs the packaged files
+        name: packaged-app
+        path: out/make/**/*  # This path is an educated guess; adjust as necessary
 
