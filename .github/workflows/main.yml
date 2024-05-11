@@ -1,4 +1,4 @@
-name: Build and Package Electron App
+name: Package Electron App
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  package-app:
     runs-on: windows-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'  # Match the Node.js version you are using
+        node-version: '16'  # Adjust this as necessary to match your project's Node.js version
 
     - name: Install dependencies
       run: npm install
@@ -30,6 +30,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: packaged-app
-        path: out/make/**/*  # This path is an educated guess; adjust as necessary
-
+        name: square-app
+        path: out/square-win32-x64/**  # Adjusted path based on expected output
