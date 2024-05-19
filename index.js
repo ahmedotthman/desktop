@@ -67,7 +67,7 @@ async function createWindow() {
     win.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
 
 
-    win.loadURL('https://square.tq-box.net/login/');
+    win.loadURL('https://phy-love.tq-box.net/login/');
     win.webContents.on('devtools-opened', () => { win.webContents.closeDevTools(); });
     win.on('page-title-updated', evt => { evt.preventDefault(); });
     // Fetch the recording software list and check for recording software
