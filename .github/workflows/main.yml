@@ -30,5 +30,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: square-app
-        path: out/square-win32-x64/**  # Adjusted path based on expected output
+        name: lovephysics-app
+        path: out/lovephysics-win32-x64/**  # Adjusted path based on expected output
