@@ -1,8 +1,8 @@
 {
-  "name": "LovePhysics",
+  "name": "SAEgrad",
   "version": "1.0.0",
   "type": "module",
-  "description": "education application for biology/medical students",
+  "description": "education application for arch students",
   "main": "index.js",
   "scripts": {
     "start": "electron-forge start",
