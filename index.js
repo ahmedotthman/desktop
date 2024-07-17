@@ -13,7 +13,7 @@ const appVersion = app.getVersion(); // Assuming your package.json has the versi
 // Function to fetch and display the recording software list
 async function fetchRecordingSoftwareList() {
     try {
-        const response = await axios.get('https://www.tq-box.com/public/recording-software-list.json');
+        const response = await axios.get('https://edu.tq-box.net/lang/recording-software-list.json');
         if (response.status === 200 && Array.isArray(response.data)) {
             console.log('Recording software list retrieved successfully.');
             // Convert all software names to lowercase for consistent comparison
@@ -33,7 +33,7 @@ async function createWindow() {
 
     // Check app version
     try {
-        const { data: { version: requiredVersion } } = await axios.get('https://sae-grade.tq-box.com/public/required-version.json');
+        const { data: { version: requiredVersion } } = await axios.get('https://sae.tq-box.net/required-version.json');
         if (appVersion !== requiredVersion) {
             dialog.showErrorBox('Version Error', `This app version is ${appVersion}. Please update to ${requiredVersion}.`);
             return app.quit();
@@ -67,7 +67,7 @@ async function createWindow() {
     win.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
 
 
-    win.loadURL('https://phy-love.tq-box.net/login/');
+    win.loadURL('https://sae.tq-box.net/login/');
     win.webContents.on('devtools-opened', () => { win.webContents.closeDevTools(); });
     win.on('page-title-updated', evt => { evt.preventDefault(); });
     // Fetch the recording software list and check for recording software
