@@ -31,4 +31,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: sae-app
-        path: out/SAEgrad-win32-x64/**  # Adjusted path based on expected output
+        path: out/eunoia-win32-x64/**  # Adjusted path based on expected output
