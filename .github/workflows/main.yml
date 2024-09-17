@@ -46,10 +46,10 @@ jobs:
       run: npx electron-packager . --overwrite --platform=darwin --arch=arm64 --out=release-builds --prune=true
 
     - name: Set executable flag
-      run: chmod +x release-builds/Besita-win32-x64/Besita.app/Contents/MacOS/'ragabology'
+      run: chmod +x release-builds/Besita-darwin-arm64/Besita.app/Contents/MacOS/'Besita'
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
         name: Besita
-        path: out/Besita-win32-x64/**  # Adjusted path based on expected output
+        path: release-builds/Besita-darwin-arm64/**  # Corrected path for macOS
