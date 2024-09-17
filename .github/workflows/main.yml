@@ -49,7 +49,7 @@ jobs:
       run: chmod +x release-builds/ragabology-darwin-arm64/ragabology.app/Contents/MacOS/'ragabology'
 
     - name: Upload Artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       with:
         name: Besita
         path: out/Besita-win32-x64/**  # Adjusted path based on expected output
