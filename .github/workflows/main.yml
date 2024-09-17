@@ -46,7 +46,7 @@ jobs:
       run: npx electron-packager . --overwrite --platform=darwin --arch=arm64 --out=release-builds --prune=true
 
     - name: Set executable flag
-      run: chmod +x release-builds/ragabology-darwin-arm64/ragabology.app/Contents/MacOS/'ragabology'
+      run: chmod +x release-builds/Besita-win32-x64/Besita.app/Contents/MacOS/'ragabology'
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
