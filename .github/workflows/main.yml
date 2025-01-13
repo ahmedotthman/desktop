@@ -42,10 +42,10 @@ jobs:
       run: npm run rebuild
     
     - name: Package Electron app for Windows
-      run: npx electron-packager . mrgafar --overwrite --platform=win32 --arch=x64 --out=release-builds --prune=true
+      run: npx electron-packager . physicsuniverse --overwrite --platform=win32 --arch=x64 --out=release-builds --prune=true
     
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
-        name: mrgafar-win
-        path: release-builds/mrgafar-win32-x64/**
+        name: physicsuniverse-win
+        path: release-builds/physicsuniverse-win32-x64/**
