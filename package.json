@@ -2,7 +2,7 @@
   "name": "PhysicsUniverse",
   "version": "1.0.0",
   "type": "module",
-  "description": "education application for all students",
+  "description": "education application for all physics students",
   "main": "index.js",
   "scripts": {
     "start": "electron-forge start",
