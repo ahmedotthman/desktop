@@ -33,7 +33,7 @@ async function createWindow() {
 
     // Check app version
     try {
-        const { data: { version: requiredVersion } } = await axios.get('https://physics-universe.com/required-version.json');
+        const { data: { version: requiredVersion } } = await axios.get('https://handasa.tq-box.net/required-version.json');
         if (appVersion !== requiredVersion) {
             dialog.showErrorBox('Version Error', `This app version is ${appVersion}. Please update to ${requiredVersion}.`);
             return app.quit();
@@ -67,7 +67,7 @@ async function createWindow() {
     win.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
 
 
-    win.loadURL('https://physics-universe.com/login/');
+    win.loadURL('https://handasa.tq-box.net/login/');
     win.webContents.on('devtools-opened', () => { win.webContents.closeDevTools(); });
     win.on('page-title-updated', evt => { evt.preventDefault(); });
     // Fetch the recording software list and check for recording software
