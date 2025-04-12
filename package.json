@@ -1,8 +1,8 @@
 {
-  "name": "SnapEdu",
+  "name": "EleganceLab",
   "version": "1.0.0",
   "type": "module",
-  "description": "education application for all students",
+  "description": "Dental lab application for all labs",
   "main": "index.js",
   "scripts": {
     "start": "electron-forge start",
