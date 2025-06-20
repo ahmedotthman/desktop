@@ -47,5 +47,5 @@ jobs:
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
       with:
-        name: snapedu-win
+        name: physicsuniverse
         path: release-builds/physicsuniverse-win32-x64/
