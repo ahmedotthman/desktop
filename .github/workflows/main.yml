@@ -42,7 +42,7 @@ jobs:
     
     - name: Package Electron app for Windows
       run: |
-        npx electron-packager . snapedu --overwrite --platform=win32 --arch=x64 --out=release-builds --prune=true
+        npx electron-packager . physicsuniverse --overwrite --platform=win32 --arch=x64 --out=release-builds --prune=true
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
